@@ -21,11 +21,26 @@
 
 // adds user input into the array
 
-		$("#form").submit(function(event){
-			event.preventDefault();
-			var input = $("#input").val().trim();
-			animals.push(input);
-			addButton();
+	$("#form").submit(function(event){
+		event.preventDefault();
+		var input = $("#input").val().trim();
+		animals.push(input);
+		addButton();
+
+	});
+
+
+// on click function for buttons
+
+	$("button").click(function(){
+		var a = $(this).attr('value');
+		console.log(a);
+		
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + a + "&api_key=dc6zaTOxFJmzC&limit=10";
+		console.log(queryURL);
+
+
+
 
 	});
 
