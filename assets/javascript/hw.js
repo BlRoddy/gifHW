@@ -9,7 +9,7 @@
 
 	function addButton(){
 		for (var i = 0; i < animals.length; i++) {	
-			var button = $("<button>");
+			var button = $("<button class='btn-primary'>");
 			button.text(animals[i]);
 			button.attr("value", animals[i]);
 			$("#buttons").append(button);		
