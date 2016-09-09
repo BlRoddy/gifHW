@@ -26,24 +26,38 @@
 		var input = $("#input").val().trim();
 		animals.push(input);
 		addButton();
-
 	});
 
 
 // on click function for buttons
 
 	$(document.body).on('click','button', function(){
-
 		var a = $(this).text();
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + a + "&api_key=dc6zaTOxFJmzC&limit=10";
 		console.log(queryURL);
+		
 
 		$.ajax({url: queryURL, method: 'GET'})
 		 .done(function(response){
 		 	var results = response.data;
 		 	console.log(results);
 
-		 })
+
+		 	for (var i = 0; i < results.length; i++) {
+		 		var gifDiv = $('<div>')
+
+		 		var rating = results[i].rating;
+		 		var p = $('<p>').text("Rating: " + rating);
+		 		var image = $('<img>');
+		 		image.attr('src', results[i].images.fixed_height_still.url);
+
+		 		gifDiv.append(p);
+		 		gifDiv.append(image);
+		 		$("#gifs").prepend(gifDiv);
+
+		 	};
+
+		 });
 
 
 
