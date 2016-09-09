@@ -8,13 +8,11 @@
 
 
 	function addButton(){
-		for (var i = 0; i < animals.length; i++) {
-			
+		for (var i = 0; i < animals.length; i++) {	
 			var button = $("<button>");
 			button.text(animals[i]);
 			button.attr("value", animals[i]);
-			$("#buttons").append(button);
-			
+			$("#buttons").append(button);		
 		};
 	};
 
