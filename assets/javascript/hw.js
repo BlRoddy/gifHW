@@ -35,7 +35,8 @@
 		var a = $(this).text();
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + a + "&api_key=dc6zaTOxFJmzC&limit=10";
 		console.log(queryURL);
-		
+
+		$("#gifs").empty();
 
 		$.ajax({url: queryURL, method: 'GET'})
 		 .done(function(response){
@@ -44,8 +45,7 @@
 
 
 		 	for (var i = 0; i < results.length; i++) {
-		 		var gifDiv = $('<div>')
-
+		 		var gifDiv = $('<div>');
 		 		var rating = results[i].rating;
 		 		var p = $('<p>').text("Rating: " + rating);
 		 		var image = $('<img>');
