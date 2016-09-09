@@ -16,9 +16,13 @@
 		};
 	};
 
+		$("#form").submit(function(event){
+			event.preventDefault();
+			var input = $("#input").val().trim();
+			animals.push(input);
+			addButton();
 
-
-
+	});
 
 
 
