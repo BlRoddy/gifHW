@@ -1,6 +1,6 @@
  $(document).ready(function(){
 	
-	var animals = ["Chupacabra", "Jackalope", "Penguin", "Hedgehog", "Armadillo", "Snake"];
+	var animals = ["Chupacabra", "Jackalope", "Penguin", "Hedgehog", "Armadillo", "Snake", "Sharktopus"];
 
 	addButton();
 
@@ -14,7 +14,7 @@
 			var button = $("<button class='btn-primary'>");
 			button.text(animals[i]);
 			button.attr("value", animals[i]);
-			$("#buttons").append(button);	
+			$("#buttons").append(button).append(" ");	
 			$("#form").trigger("reset");	
 		};
 	};
@@ -54,14 +54,11 @@
 		 		gifDiv.append(p);
 		 		gifDiv.append(image);
 		 		$("#gifs").prepend(gifDiv);
-
 		 	};
-
 		 });
-
-
-
 	});
+
+	//need on click function to convert still images to animated
 
 
 
