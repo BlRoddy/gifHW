@@ -1,13 +1,15 @@
  $(document).ready(function(){
 	
 	var animals = ["Chupacabra", "Jackalope", "Penguin", "Hedgehog", "Armadillo", "Snake", "Sharktopus"];
+	var move;
+	var still;
 
 	addButton();
 
 
-// creates buttons for each item in array
+//creates buttons for each item in array
 	function addButton(){
-
+	
 		$("#buttons").empty();
 
 		for (var i = 0; i < animals.length; i++) {	
@@ -45,28 +47,47 @@
 
 
 		 	for (var i = 0; i < results.length; i++) {
+		 		
 		 		var gifDiv = $('<div>');
 		 		var still = results[i].images.fixed_height_still.url;
 		 		var move = results[i].images.fixed_height.url;
 		 		var rating = results[i].rating;
 		 		var p = $('<p>').text("Rating: " + rating);
 		 		var image = $('<img>');
+
 		 		image.attr('src', still);
+		 		image.attr('data-still', still);
+		 		image.attr('data-move', move);
+		 		image.attr('data-state', 'still');
+
 		 		gifDiv.append(p);
 		 		gifDiv.append(image);
 		 		$("#gifs").prepend(gifDiv);
 		 	};
 
 		 });
-	});
+	
+	 });
 
 	//need on click function to convert still images to animated
 
 	$(document.body).on('click', 'img', function(){
+		console.log("click works");
 
+	var state = $(this).attr('data-state');
+		console.log(state);
+	
+		  if (state == 'still'){
+                $(this).attr('src', move);
+                $(this).attr('data-state', 'move');
+            }
 
+            else{
+                $(this).attr('src', still);
+                $(this).attr('data-state', 'still');
+            }
 
+		});
 
-	})
 
  });
