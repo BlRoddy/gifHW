@@ -48,10 +48,11 @@
 
 		 	for (var i = 0; i < results.length; i++) {
 		 		
-		 		var gifDiv = $('<div>');
-
 		 		var still = results[i].images.fixed_height_still.url;
 		 		var move = results[i].images.fixed_height.url;
+
+		 		var gifDiv = $('<div>');
+
 		 		var rating = results[i].rating;
 
 		 		var p = $('<p>').text("Rating: " + rating);
@@ -74,14 +75,13 @@
 
 				var state = $(this).attr('data-state');
 				
-			
 				  if (state == 'still'){
-		                $(this).attr("src", move);
+		                $(this).attr("src", $(this).data('move'));
 		                $(this).attr('data-state', 'move');
 		            }
 
 		            else{
-		                $(this).attr('src', still);
+		                $(this).attr('src', $(this).data('still'));
 		                $(this).attr('data-state', 'still');
 		            }
 
