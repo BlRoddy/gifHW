@@ -68,27 +68,26 @@
 		 		$("#gifs").prepend(gifDiv);
 		 	};
 
+		 });
+
+	});
+
 	//need on click function to convert still images to animated
 
-			$("img").click(function(){
-				console.log("click works");
+	$(document.body).on('click','img', function(){
+			console.log("click works");
 
-				var state = $(this).attr('data-state');
+			var state = $(this).attr('data-state');
 				
-				  if (state == 'still'){
-		                $(this).attr("src", $(this).data('move'));
-		                $(this).attr('data-state', 'move');
-		            }
+			 if (state == 'still'){
+		        $(this).attr("src", $(this).data('move'));
+		        $(this).attr('data-state', 'move');
+		        }
+			 else{
+		        $(this).attr('src', $(this).data('still'));
+		        $(this).attr('data-state', 'still');
+		         }
 
-		            else{
-		                $(this).attr('src', $(this).data('still'));
-		                $(this).attr('data-state', 'still');
-		            }
-
-			});
-			
-		});
-
-	 });
+	}); 
 
  });
