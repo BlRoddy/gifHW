@@ -15,7 +15,7 @@
 			button.text(animals[i]);
 			button.attr("value", animals[i]);
 			$("#buttons").append(button).append(" ");	
-			$("#form").trigger("reset");	
+			$("#form").trigger('reset');	
 		};
 	};
 
@@ -46,20 +46,27 @@
 
 		 	for (var i = 0; i < results.length; i++) {
 		 		var gifDiv = $('<div>');
+		 		var still = results[i].images.fixed_height_still.url;
+		 		var move = results[i].images.fixed_height.url;
 		 		var rating = results[i].rating;
 		 		var p = $('<p>').text("Rating: " + rating);
 		 		var image = $('<img>');
-		 		image.attr('src', results[i].images.fixed_height_still.url);
-
+		 		image.attr('src', still);
 		 		gifDiv.append(p);
 		 		gifDiv.append(image);
 		 		$("#gifs").prepend(gifDiv);
 		 	};
+
 		 });
 	});
 
 	//need on click function to convert still images to animated
 
+	$(document.body).on('click', 'img', function(){
 
+
+
+
+	})
 
  });
